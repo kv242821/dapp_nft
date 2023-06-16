@@ -1,0 +1,49 @@
+body {
+  background-image: url("./assets/images/banner-bg.png");
+  font-family: "Inter", sans-serif;
+}
+
+.nav-bar {
+  height: 70px;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 700;
+  cursor: pointer;
+
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.instruction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.nft-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 -8px 6px -6px black;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.footer {
+  height: 60px;
+  backdrop-filter: blur(10px);
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
