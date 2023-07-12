@@ -1,10 +1,47 @@
+html,
+.offcanvas-body {
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(left, #fff, #e4e4e4);
+    border: 1px solid #aaa;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+  }
+  &::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(left, #22add4, #1e98ba);
+  }
+}
+
 body {
-  background-image: url("./assets/images/banner-bg.png");
   font-family: "Inter", sans-serif;
+}
+
+.background-image {
+  position: fixed;
+  background-image: url("./assets/images/banner-bg.png");
+  backdrop-filter: blur(10px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .nav-bar {
   height: 70px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .logo {
@@ -18,6 +55,80 @@ body {
   user-select: none; /* Standard syntax */
 }
 
+.connect-wallet-button {
+  margin-right: 12px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  transition: background-color 0.2s cubic-bezier(0.05, 0, 0.2, 1) 0s,
+    border-color 0.2s cubic-bezier(0.05, 0, 0.2, 1) 0s;
+  color: rgb(255, 255, 255);
+  border: none;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &:disabled {
+    opacity: 1;
+  }
+}
+
+.icon-user {
+  margin-right: 12px;
+  width: 48px;
+  padding: 12px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  position: relative;
+  border-radius: 12px;
+  text-align: center;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.icon-cart {
+  width: 48px;
+  padding: 12px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  position: relative;
+  border-radius: 12px;
+  text-align: center;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.cart-label {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(46, 142, 238);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
 .instruction {
   display: flex;
   justify-content: center;
@@ -25,25 +136,99 @@ body {
   color: #ffffff;
 }
 
-.nft-image {
+.nft-container {
+  position: relative;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 -8px 6px -6px black;
+}
+
+.nft-image {
+  width: 100% !important;
   transition: all 0.3s;
   cursor: pointer;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 }
 
-.footer {
-  height: 60px;
-  backdrop-filter: blur(10px);
-
-  position: fixed;
+.nft-container::after {
+  position: absolute;
+  top: 0;
   left: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.selected {
+  filter: brightness(0.5);
+}
+
+.nft-title {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+}
+
+.footer {
+  height: 50px;
+  backdrop-filter: blur(10px);
   width: 100%;
   color: white;
+}
+
+.offcanvas {
+  margin: 20px;
+  width: 350px !important;
+  border-radius: 10px;
+}
+
+.offcanvas-item {
+  margin: 12px 0;
+  border-radius: 10px;
+  width: 100% !important;
+  height: auto !important;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+.mint-button {
+  width: 100% !important;
+  border-radius: 12px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 22px !important;
+  letter-spacing: 0.01em !important;
+  border: none !important;
+  padding: 17px 24px !important;
+  background-color: rgb(32, 129, 226) !important;
+  color: rgb(255, 255, 255) !important;
+  transition: all 0.2s ease 0s !important;
+
+  &:hover {
+    background-color: rgb(46, 142, 238) !important;
+  }
+
+  &:active {
+    background-color: rgb(0, 106, 212) !important;
+  }
+
+  &:disabled {
+    background-color: rgba(32, 129, 226, 0.6) !important;
+  }
+}
+
+.Toastify {
+  font-size: 12px;
 }

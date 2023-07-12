@@ -1,9 +1,14 @@
 import banner from "../assets/images/banner-bg.png";
 import sample from "../assets/images/sample.png";
+import cart from "../assets/icons/cart.png";
 
-const Resource = {
+const Images = {
   banner,
   sample,
 };
 
-export default Resource;
+const Icons = {
+  cart,
+};
+
+export const Resource = { Images, Icons };
