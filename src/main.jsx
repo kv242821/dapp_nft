@@ -12,6 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <ThirdwebProvider
       activeChain={Goerli}
       supportedWallets={[metamaskWallet()]}
+      clientId="07fcc9c2affaeb57088cc4bee99591f1"
     >
       <App />
     </ThirdwebProvider>
